@@ -30,12 +30,12 @@
     Updated: 2025-05-17
 */
 
-% father(Father, Child).
+% father(Father, Child)
 father(X, Y) :- 
     male(X),
     parent(X, Y).
 
-% mother(Mother, Child).
+% mother(Mother, Child)
 mother(X, Y) :-
     female(X),
     parent(X, Y).
@@ -43,9 +43,12 @@ mother(X, Y) :-
 % child(Child, Parent).
 child(X, Y) :- parent(Y, X).
 
-% sibling(Child, Child).
+% sibling(Child, Child)
 sibling(X, Y) :- 
     parent(P, X),
     parent(P, Y),
     X \= Y.
 
+% spouse(X, Y) :- X is married to Y (symmetric)
+spouse(X, Y) :- married(X, Y).
+spouse(X, Y) :- married(Y, X).
