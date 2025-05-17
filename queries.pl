@@ -38,4 +38,7 @@ testSp1 :- spouse(maxwell, louise).   % true
 testSp2 :- spouse(louise, maxwell).   % true
 testSp3 :- spouse(franklin, trent).   % false
 
-
+% === aunt/2 =======================================
+testA1 :- aunt(louise, cindy).        % true, blood
+testA2 :- aunt(clara, trent).         % true, marriage
+testA3 :- aunt(clara, maxwell).       % false

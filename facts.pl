@@ -28,6 +28,7 @@ married(franklin,mia).
 
 parent(franklin,elenore).   parent(mia,elenore).
 parent(franklin,louise).    parent(mia,louise).
+parent(franklin,henry).     parent(mia,henry).
 
 % Generation 2: Children of Franklin and Mia
 % Elenore and Phillip -> kids: cindy, ryan, julia
@@ -48,6 +49,11 @@ parent(maxwell,trent).      parent(louise,trent).
 parent(maxwell,david).      parent(louise,david).
 parent(maxwell,brandy).     parent(louise,brandy).
 
+% Henry and Clara -> kids:  none so far.
+male(henry).                born(henry,1956).
+female(clara).              born(clara,1960).
+married(henry,clara).
+
 % Generation 3: Children of Elenore and Phillip
 % Cindy
 female(cindy).              born(cindy,1976).
@@ -67,3 +73,4 @@ male(david).               born(david,1986).
 
 % Brandy
 female(brandy).             born(brandy,1988).
+

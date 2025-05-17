@@ -52,3 +52,17 @@ sibling(X, Y) :-
 % spouse(X, Y) :- X is married to Y (symmetric)
 spouse(X, Y) :- married(X, Y).
 spouse(X, Y) :- married(Y, X).
+
+% --- X is aunt of Y if ---
+% 1 - By blood: X is a female and a sibling of Y's parent 
+aunt(X, Y) :-
+    female(X),
+    sibling(X, P),
+    parent(P, Y).
+
+% 2 - By marriage: X is female and married to a male who is the sibling of Y's parent
+aunt(X, Y) :-
+    female(X),
+    spouse(X, S),
+    parent(P, Y),
+    sibling(S, P).
