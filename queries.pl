@@ -22,6 +22,8 @@ testF1 :- father(phillip, cindy).     % true
 testF2 :- father(mia, julia).         % false
 
 % === mother/2 =====================================
+testM1 :- mother(mia, louise).        % true
+testM2 :- mother(mia, daniel).        % false
 % === child/2 ======================================
 % === sibling/2 ====================================
 % === spouse/2 =====================================

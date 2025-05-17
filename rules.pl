@@ -33,7 +33,9 @@
 % father(Father, Child).
 father(X, Y) :- 
     male(X),
-    parent(X,Y).
+    parent(X, Y).
 
-
-
+% mother(Mother, Child).
+mother(X, Y) :-
+    female(X),
+    parent(X, Y).
