@@ -29,3 +29,11 @@
     Created: 2025-04-22
     Updated: 2025-05-17
 */
+
+% father(Father, Child).
+father(X, Y) :- 
+    male(X),
+    parent(X,Y).
+
+
+
