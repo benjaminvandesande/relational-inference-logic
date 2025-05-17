@@ -42,3 +42,10 @@ mother(X, Y) :-
 
 % child(Child, Parent).
 child(X, Y) :- parent(Y, X).
+
+% sibling(Child, Child).
+sibling(X, Y) :- 
+    parent(P, X),
+    parent(P, Y),
+    X \= Y.
+

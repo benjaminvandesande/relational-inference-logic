@@ -30,6 +30,8 @@ testC1 :- child(trent, maxwell).      % true
 testC2 :- child(cindy, brandy).       % false
 
 % === sibling/2 ====================================
+testS1 :- sibling(cindy, julia).     % true
+testS2 :- sibling(phillip,trent).     % false
 % === spouse/2 =====================================
 
 
