@@ -39,3 +39,6 @@ father(X, Y) :-
 mother(X, Y) :-
     female(X),
     parent(X, Y).
+
+% child(Child, Parent).
+child(X, Y) :- parent(Y, X).
