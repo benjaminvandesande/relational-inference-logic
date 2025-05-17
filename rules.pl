@@ -64,5 +64,20 @@ aunt(X, Y) :-
 aunt(X, Y) :-
     female(X),
     spouse(X, S),
-    parent(P, Y),
-    sibling(S, P).
+    sibling(S, P),
+    parent(P, Y).
+
+% --- X is uncle of Y if ---
+% 1 - By blood: X is a male and a ssibling of Y's parent
+uncle(X, Y) :-
+    male(X),
+    sibling(X, P),
+    parent(P, Y).
+
+% 2 - By marriage: X is a male and married to the sibling of Y's parent
+uncle(X, Y) :-
+    male(X),
+    spouse(X, S),
+    sibling(S, P),
+    parent(P, Y).
+
