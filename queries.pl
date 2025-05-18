@@ -75,39 +75,39 @@ testCo2 :- cousin(trent, julia).      % true, symmetry
 testCo3 :- cousin(julia, ryan).       % false
 
 % === ancestor/2 ====================================
-% Test: mia is ancestor of julia (parent)
+% Test: parent (mia and julia)
 testAn1 :- ancestor(mia, julia).        % true
 
-% Test: mia is ancestor of brandy (grandparent)
+% Test: grandmother (mia and brandy)
 testAn2 :- ancestor(mia, brandy).       % true
 
-% Test: franklin is ancestor of ryan (grandparent)
+% Test: grandfather (franklin and ryan)
 testAn3 :- ancestor(franklin, ryan).    % true
 
-% Test: maxwell is not ancestor of ryan (same generation)
+% Test: same generation (maxwell and ryan)
 testAn4 :- ancestor(maxwell, ryan).     % false
 
-% Test: trent is not ancestor of david (child > parent)
+% Test: child > parent (trent and david) 
 testAn5 :- ancestor(trent, david).      % false
 
 % === descendant/2 ====================================
-% Test: brandy is descendant of mia (grandchild)
+% Test: grandchild (brandy and mia) 
 testDe1 :- descendant(brandy, mia).       % true
 
-% Test: ryan is descendant of franklin (grandchild)
+% Test: grandchild (ryan and franklin) 
 testDe2 :- descendant(ryan, franklin).    % true
 
-% Test: david is not a descendant of trent
+% Test: siblings (david and trent)
 testDe3 :- descendant(david, trent).      % false
 
-% Test: maxwell is not descendant of ryan (same generation)
+% Test: same generation (maxwell and ryan)
 testDe4 :- descendant(maxwell, ryan).     % false
 
 % === generation/2 ====================================
-% Test: franklin and mia are from the same generation
+% Test: same generation (franklin and mia) 
 testGen1 :- generation(franklin, mia).     % true
 
-% Test: franklin and ryan are not fromt he same generation
+% Test: different generations (franklin and ryan) 
 testGen2 :- generation(franklin, ryan).    % false
 
 % Test: cousin generation (trent and julia)
@@ -115,3 +115,16 @@ testGen3 :- generation(trent, julia).      % true
 
 % Test: parent-child mismatch (phillip and cindy)
 testGen4 :- generation(phillip, cindy).    % false
+
+% === older/2 ========================================
+% Test: grandfather > child (franklin and ryan)
+testOld1 :- older(franklin, ryan).      % true
+
+% Test: child > parent (cindy and phillip) 
+testOld2 :- older(cindy, phillip).      % false
+
+% Test: parent > child (maxwell and brandy)
+testOld3 :- older(maxwell, brandy).     % true
+
+% Test: same generation (julia and ryan) 
+testOld4 :- older(julia, ryan).         % false

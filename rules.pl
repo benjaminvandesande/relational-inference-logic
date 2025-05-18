@@ -133,9 +133,16 @@ descendant(X, Y) :-
     ancestor(Y, X).
 
 % generation(Person1, Person2)
-% X and Y are from the same generation if their birth years are within 20 years eachother.
+% X and Y are from the same generation if their birth years are within 20 years of each other
 generation(X, Y) :-
     born(X, Xyear),
     born(Y, Yyear),
     Xyear =< Yyear + 19,
 	Yyear =< Xyear + 19.
+
+% older(Older, Younger)
+% X is older than Y if X was born before Y
+older(X, Y) :- 
+    born(X, Xyear),
+    born(Y, Yyear),
+    Xyear < Yyear.
