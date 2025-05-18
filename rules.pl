@@ -127,3 +127,7 @@ ancestor(X, Y) :-
     parent(Z, Y), 
     ancestor(X, Z).
 
+% descendant(Descendant, Ancestor)
+% X is a descendant of Y if Y is an ancestor of X
+descendant(X, Y) :- 
+    ancestor(Y, X).

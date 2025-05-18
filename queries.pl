@@ -89,3 +89,16 @@ testAn4 :- ancestor(maxwell, ryan).     % false
 
 % Test: trent is not ancestor of david (child > parent)
 testAn5 :- ancestor(trent, david).      % false
+
+% === descendant/2 ====================================
+% Test: brandy is descendant of mia (grandchild)
+testDe1 :- descendant(brandy, mia).       % true
+
+% Test: ryan is descendant of franklin (grandchild)
+testDe2 :- descendant(ryan, franklin).    % true
+
+% Test: david is not a descendant of trent
+testDe3 :- descendant(david, trent).      % false
+
+% Test: maxwell is not descendant of ryan (same generation)
+testDe4 :- descendant(maxwell, ryan).     % false
