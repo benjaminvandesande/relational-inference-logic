@@ -49,6 +49,18 @@ sibling(X, Y) :-
     parent(P, Y),
     X \= Y.
 
+% brother(Brother, Sibling)
+% X is the brother of Y if X is male and a sibling of Y
+brother(X, Y) :-
+    male(X),
+    sibling(X, Y).
+
+% sister(Sister, Sibling)
+% X is the sister of Y if X is female and a sibling of Y
+sister(X, Y) :-
+    female(X),
+    sibling(X, Y).
+
 % spouse(X, Y) :- X is married to Y (symmetric)
 spouse(X, Y) :- married(X, Y).
 spouse(X, Y) :- married(Y, X).
@@ -56,8 +68,7 @@ spouse(X, Y) :- married(Y, X).
 % --- X is aunt of Y if ---
 % 1 - By blood: X is a female and a sibling of Y's parent 
 aunt(X, Y) :-
-    female(X),
-    sibling(X, P),
+    sister(X, P),
     parent(P, Y).
 
 % 2 - By marriage: X is female and married to a male who is the sibling of Y's parent
@@ -70,8 +81,7 @@ aunt(X, Y) :-
 % --- X is uncle of Y if ---
 % 1 - By blood: X is a male and a ssibling of Y's parent
 uncle(X, Y) :-
-    male(X),
-    sibling(X, P),
+    brother(X, P),
     parent(P, Y).
 
 % 2 - By marriage: X is a male and married to the sibling of Y's parent
@@ -81,3 +91,4 @@ uncle(X, Y) :-
     sibling(S, P),
     parent(P, Y).
 
+% 

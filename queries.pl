@@ -33,6 +33,14 @@ testC2 :- child(cindy, brandy).       % false
 testS1 :- sibling(cindy, julia).      % true
 testS2 :- sibling(phillip,trent).     % false
 
+% === brother/2 ====================================
+testB1 :- brother(david, brandy).     % true
+testB2 :- brother(brandy, david).     % false
+
+% === sister/2 =====================================
+testSi1 :- sister(brandy, trent).     % true
+testSi2 :- sister(louise, julia).     % false
+
 % === spouse/2 =====================================
 testSp1 :- spouse(maxwell, louise).   % true
 testSp2 :- spouse(louise, maxwell).   % true
@@ -47,3 +55,4 @@ testA3 :- aunt(clara, maxwell).       % false
 testU1 :- uncle(henry, cindy).        % true, blood
 testU2 :- uncle(maxwell, julia).      % true, spouse
 testU3 :- uncle(maxwell, phillip).    % false
+
