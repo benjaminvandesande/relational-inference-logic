@@ -65,6 +65,24 @@ sister(X, Y) :-
 spouse(X, Y) :- married(X, Y).
 spouse(X, Y) :- married(Y, X).
 
+% grandparent(Grandparent, Child)
+% X is the grandparent of Y is X is the parent of the parent of Y
+grandparent(X, Y) :-
+    parent(X, P),
+    parent(P, Y).
+
+% grandmother(Grandmother, Child)
+% X is female grandparent of Y
+grandmother(X, Y) :-
+    female(X),
+    grandparent(X, Y).
+
+% grandfather(Grandfather, Child)
+% X is male grandparent of Y
+grandfather(X, Y) :- 
+    male(X),
+    grandparent(X, Y).
+
 % --- X is aunt of Y if ---
 % 1 - By blood: X is a female and a sibling of Y's parent 
 aunt(X, Y) :-
@@ -98,4 +116,14 @@ cousin(X, Y) :-
     parent(Q, Y),
     sibling(P, Q).
 
+% ancestor(Ancestor, Descendent)
+% X is an ancestor of Y if
+% 1 - X is a parent of Y (base-case)
+ancestor(X, Y) :- 
+    parent(X, Y).
+
+% 2 - X is a parent of someone who is an ancestor of Y (recursive case)
+ancestor(X, Y) :- 
+    parent(Z, Y), 
+    ancestor(X, Z).
 

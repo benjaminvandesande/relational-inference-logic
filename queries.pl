@@ -46,6 +46,19 @@ testSp1 :- spouse(maxwell, louise).   % true
 testSp2 :- spouse(louise, maxwell).   % true
 testSp3 :- spouse(franklin, trent).   % false
 
+% === grandparent/2 ================================
+testGP1 :- grandparent(mia, brandy).  % true
+testGP2 :- grandparent(mia, maxwell). % false
+
+% === grandmother/2 ================================
+testGM1 :- grandmother(mia, ryan).    % true
+testGM2 :- grandmother(clara, david). % false
+
+% === grandfather/2 ================================
+testG1 :- grandfather(franklin, ryan). % true
+testG2 :- grandfather(phillip, ryan).  % false
+
+
 % === aunt/2 =======================================
 testA1 :- aunt(louise, cindy).        % true, blood
 testA2 :- aunt(clara, trent).         % true, spouse
@@ -60,3 +73,19 @@ testU3 :- uncle(maxwell, phillip).    % false
 testCo1 :- cousin(julia, trent).      % true
 testCo2 :- cousin(trent, julia).      % true, symmetry
 testCo3 :- cousin(julia, ryan).       % false
+
+% === ancestor/2 ====================================
+% Test: mia is ancestor of julia (parent)
+testAn1 :- ancestor(mia, julia).        % true
+
+% Test: mia is ancestor of brandy (grandparent)
+testAn2 :- ancestor(mia, brandy).       % true
+
+% Test: franklin is ancestor of ryan (grandparent)
+testAn3 :- ancestor(franklin, ryan).    % true
+
+% Test: maxwell is not ancestor of ryan (same generation)
+testAn4 :- ancestor(maxwell, ryan).     % false
+
+% Test: trent is not ancestor of david (child > parent)
+testAn5 :- ancestor(trent, david).      % false
