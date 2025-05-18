@@ -56,3 +56,7 @@ testU1 :- uncle(henry, cindy).        % true, blood
 testU2 :- uncle(maxwell, julia).      % true, spouse
 testU3 :- uncle(maxwell, phillip).    % false
 
+% === cousin/2 =====================================
+testCo1 :- cousin(julia, trent).      % true
+testCo2 :- cousin(trent, julia).      % true, symmetry
+testCo3 :- cousin(julia, ryan).       % false

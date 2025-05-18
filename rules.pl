@@ -91,4 +91,11 @@ uncle(X, Y) :-
     sibling(S, P),
     parent(P, Y).
 
-% 
+% cousin(Cousin1, Cousin2)
+% X and Y are cousins if X's parent is a sibling of Y's parent.
+cousin(X, Y) :-
+    parent(P, X),
+    parent(Q, Y),
+    sibling(P, Q).
+
+
