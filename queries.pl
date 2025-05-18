@@ -102,3 +102,16 @@ testDe3 :- descendant(david, trent).      % false
 
 % Test: maxwell is not descendant of ryan (same generation)
 testDe4 :- descendant(maxwell, ryan).     % false
+
+% === generation/2 ====================================
+% Test: franklin and mia are from the same generation
+testGen1 :- generation(franklin, mia).     % true
+
+% Test: franklin and ryan are not fromt he same generation
+testGen2 :- generation(franklin, ryan).    % false
+
+% Test: cousin generation (trent and julia)
+testGen3 :- generation(trent, julia).      % true
+
+% Test: parent-child mismatch (phillip and cindy)
+testGen4 :- generation(phillip, cindy).    % false
